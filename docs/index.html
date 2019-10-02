@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AdGuard test CSP rules</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div>
+    <h2>CSS</h2>
+    <div class="description">If block below doesn't has image it mean that css is not working</div>
+    <div class="test-css"></div>
+</div>
+
+
+<div>
+    <h2>JS</h2>
+    <div>
+        <div>If block bellow doesn't has any text it means JS was turned off by CSP rules</div>
+        <div class="test-js">
+             <div class="text"></div>
+        </div>
+    </div>
+</div>
+
+<script src="index.js"></script>
+</body>
+</html>
