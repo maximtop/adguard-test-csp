@@ -5,3 +5,16 @@
     jsBlock.innerText = data.message;
 })();
 
+if (window.Worker) {
+    const myWorker = new Worker('src/worker.js');
+    myWorker.postMessage({type: 'FETCH_INFO'});
+    myWorker.onmessage = (e) => {
+        if (e.data.type === 'FETCH_INFO_RESPONSE') {
+            const jsWorkerBlock = document.querySelector('.test-js .worker-text');
+            jsWorkerBlock.innerText = e.data.message;
+        }
+    };
+} else {
+    console.log('your browser doesn\'t support workers');
+}
+
