@@ -15,7 +15,7 @@ if (window.Worker) {
         }
     };
 
-    const remoteWorker = new Worker('https://maximtop.github.io/adguard-test-csp-trusted/src/worker.js');
+    const remoteWorker = new Worker('https://maximtop.github.io/adguard-test-csp-trusted/src/trusted-worker.js');
     remoteWorker.postMessage({type: 'FETCH_INFO'});
     remoteWorker.onmessage = (e) => {
         if (e.data.type === 'FETCH_INFO_RESPONSE') {
