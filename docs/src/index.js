@@ -14,6 +14,15 @@ if (window.Worker) {
             jsWorkerBlock.innerText = e.data.message;
         }
     };
+
+    const remoteWorker = new Worker('https://maximtop.github.io/adguard-test-csp-trusted/src/worker.js');
+    remoteWorker.postMessage({type: 'FETCH_INFO'});
+    remoteWorker.onmessage = (e) => {
+        if (e.data.type === 'FETCH_INFO_RESPONSE') {
+            const jsWorkerBlock = document.querySelector('.test-js .remote-worker-text');
+            jsWorkerBlock.innerText = e.data.message;
+        }
+    };
 } else {
     console.log('your browser doesn\'t support workers');
 }
